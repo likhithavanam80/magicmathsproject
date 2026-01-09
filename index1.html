@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maths Magic Predictor</title>
+
+  <!-- Google Fonts for a modern, elegant look -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Background -->
+  <div class="floating-background"></div>
+
+  <!-- Header -->
+  <header>
+    <h1>🤖 Maths Magic Predictor</h1>
+    <p class="sub-title">Discover the hidden sum with a touch of magic!</p>
+  </header>
+
+  <!-- Game Section -->
+  <section class="game-container">
+    
+    <!-- Instructions -->
+    <div id="instructions" class="screen">
+      <h2>🔮 How the Game Works</h2>
+      <ul>
+        <li>Specify the total number of entries (N) and the number of digits per entry (D).</li>
+        <li>Input the first number — the prediction is automatically recorded.</li>
+        <li>The computer will generate complemenary numbers for the the magic sum.</li>
+        <li>Flip the prediction card at any moment to reveal the exact sum.</li>
+        <li>No entry may exceed the specified number of digits (D).</li>
+      </ul>
+      <button class="btn start-btn" onclick="showGame()">Start Game</button>
+    </div>
+
+    <!-- Game Screen -->
+   <div id="gameScreen" class="screen" style="display:none;">
+  <div class="box input-box">
+    <div class="input-group">
+      <label for="total">Total Numbers (N):</label>
+      <input type="number" id="total" placeholder="Enter total numbers">
+    </div>
+
+    <div class="input-group">
+      <label for="digits">Digits per Number (D):</label>
+      <input type="number" id="digits" placeholder="Enter digits per number">
+    </div>
+
+    <button class="btn start-btn" onclick="startGame()">Start Game</button>
+  </div>
+
+  <div class="box game-box" id="game" style="display:none;">
+    <h3>Enter Number:</h3>
+    <input type="number" id="userNum" placeholder="Your number">
+    <button class="btn submit-btn" onclick="submitNum()">Submit</button>
+
+    <div id="numbersHistory"></div>
+    <p><b>Numbers Entered:</b> <span id="count">0</span></p>
+
+    <button class="btn reveal-btn" onclick="revealPrediction()">Reveal Prediction</button>
+
+    <div class="flip-card">
+      <div class="flip-card-inner" id="flipCardInner">
+        <div class="flip-card-front">Prediction Hidden</div>
+        <div class="flip-card-back" id="prediction">0</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+  </section>
+
+  <footer>
+    <p>© 2026 Maths Magic by Likhitha Vanam</p>
+  </footer>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <script src="script.js"></script>
+</body>
+</html>

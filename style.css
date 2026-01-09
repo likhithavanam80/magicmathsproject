@@ -1,0 +1,222 @@
+/* ===== Reset & Body ===== */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Poppins', sans-serif;
+  background:#0b0c10;
+  color:#fff;
+  overflow-x:hidden;
+  min-height:100vh;
+  position:relative;
+}
+
+/* ===== Floating Background: numbers, robots, formulas ===== */
+.floating-background{
+  position:fixed;
+  top:0; left:0; right:0; bottom:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:-1;
+}
+
+/* Floating elements: numbers, robots, formulas */
+.floating-background span{
+  position:absolute;
+  font-size:1.2rem;
+  color:rgba(255,255,255,0.15);
+  animation:floating 12s linear infinite;
+}
+
+@keyframes floating{
+  0%{transform:translateY(110vh) translateX(0) rotate(0deg);}
+  100%{transform:translateY(-10vh) translateX(50vw) rotate(360deg);}
+}
+
+/* ===== Header ===== */
+header{
+  text-align:center;
+  padding:50px 20px 20px;
+}
+header h1{
+  font-family:'Comic Neue', cursive;
+  font-size:3rem;
+  background:linear-gradient(90deg,#ff6a00,#ee0979,#ffd200);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.sub-title{
+  font-size:1.2rem;
+  color:#aaa;
+  margin-top:10px;
+}
+
+/* ===== Game Container ===== */
+.game-container{
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  flex-direction:column;
+  gap:20px;
+  text-align:center;
+  padding:20px;
+}
+.screen{
+  max-width:500px;
+  margin:auto;
+}
+.box{
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:15px;
+  margin:15px 0;
+  backdrop-filter: blur(5px);
+}
+.input-box input{
+  width:80%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:8px;
+  border:none;
+  font-size:1rem;
+}
+
+/* ===== Buttons ===== */
+.btn{
+  background:#ff6a00;
+  border:none;
+  padding:12px 25px;
+  border-radius:15px;
+  color:#fff;
+  cursor:pointer;
+  font-weight:bold;
+  margin-top:10px;
+  transition:0.3s;
+  font-size:1rem;
+}
+.btn:hover{
+  background:#ee0979;
+  transform:scale(1.1);
+}
+
+/* Start button bigger */
+.start-btn{
+  font-size:1.2rem;
+  padding:15px 30px;
+}
+
+/* ===== Number Cards ===== */
+.number-card{
+  background:#222;
+  padding:12px;
+  margin:8px auto;
+  border-radius:12px;
+  max-width:280px;
+  box-shadow:0 0 15px rgba(255,255,255,0.3);
+  transition:0.3s;
+}
+.number-card:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 25px rgba(255,255,255,0.7);
+}
+
+/* ===== Flip Card ===== */
+.flip-card{
+  background:transparent;
+  width:220px;
+  height:120px;
+  perspective:1000px;
+  margin:20px auto;
+}
+.flip-card-inner{
+  position:relative;
+  width:100%;
+  height:100%;
+  transition:transform 0.8s;
+  transform-style:preserve-3d;
+}
+.flip-card-inner.flipped{
+  transform:rotateY(180deg);
+}
+.flip-card-front, .flip-card-back{
+  position:absolute;
+  width:100%;
+  height:100%;
+  backface-visibility:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-weight:bold;
+  font-size:1.3rem;
+  border-radius:15px;
+  border:2px solid #ff6a00;
+}
+.flip-card-back{
+  transform:rotateY(180deg);
+  background:#ff6a00;
+  color:#111;
+}
+
+/* ===== Footer ===== */
+footer{
+  margin:50px 0;
+  font-size:0.9rem;
+  color:#aaa;
+}
+
+/* ===== Smooth Fade Animations ===== */
+.screen h2, .screen ul, .screen p{
+  opacity:0;
+  animation:fadeIn 1s forwards;
+  animation-delay:0.5s;
+}
+@keyframes fadeIn{
+  to{opacity:1;}
+}
+/* ===== Input Group ===== */
+.input-group{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  margin-bottom:15px;
+}
+
+.input-group label{
+  margin-bottom:5px;
+  font-weight:600;
+  font-size:1rem;
+  color:#fff;
+}
+
+.input-group input{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:none;
+  font-size:1rem;
+  background:rgba(255,255,255,0.1);
+  color:#fff;
+}
+
+.input-group input::placeholder{
+  color:#ccc;
+}
+body, html {
+    margin:0;
+    padding:0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.screen {
+    padding:20px;
+    box-sizing:border-box;
+}
+
+input, button {
+    width: 100%;
+    max-width: 400px;  /* ensures inputs aren't too wide on desktop */
+}
+
+@media(max-width:600px){
+    h1 { font-size:1.8rem; }
+    p, label { font-size:1rem; }
+    .flip-card { width:90%; height:auto; }
+}
